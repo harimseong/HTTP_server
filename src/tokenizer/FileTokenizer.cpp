@@ -1,6 +1,7 @@
 #include <sstream>
 #include <iostream>
 
+#include "Logger.hpp"
 #include "util/Util.hpp"
 #include "parser/ConfigParser.hpp"
 #include "exception/FileTokenizerException.hpp"
@@ -87,7 +88,6 @@ FileTokenizer::getErrorLog(const char* message)
 	return errorLog;
 }
 
-#include "Logger.hpp"
 void
 FileTokenizer::tokenize(const std::string& chunk, int lineNumber)
 {

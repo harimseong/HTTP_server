@@ -7,8 +7,11 @@
 #include "Location.hpp"
 #include "http/Request.hpp"
 
-#define UPDATE_REQUEST_ERROR(status, code)\
-	status = status < 300 ? code : status; LOG(DEBUG, "error update = %d", status);
+#define UPDATE_REQUEST_ERROR(status, code) \
+{\
+  status = (status < 300 ? code : status);\
+  LOG(DEBUG, "error update = %d", status);\
+}
 
 class	HttpRequestParser
 :	public AParser<HttpStreamTokenizer, Request>

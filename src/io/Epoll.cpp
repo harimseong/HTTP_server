@@ -22,9 +22,9 @@ Epoll::operator=(Epoll const& epoll)
 
 Epoll::Epoll()
 {
-	m_epoll = epoll_create(1);
+	m_epoll = epoll_create1(EPOLL_CLOEXEC);
 	if (m_epoll < 0)
-		throw std::runtime_error("epoll() fail");
+		throw std::runtime_error("epoll_create1() fail");
 }
 
 Epoll::~Epoll()
@@ -46,19 +46,20 @@ Epoll::addWork(int fd, e_operation op, int filter, EventObject* object)
 		if (filter & bitmask)
 			newEvent.events |= filterTable[count];
 	}
-	switch(op)
+	switch (op)
 	{
 		case OP_ADD:
 			object->m_filter = filter;
 			break;
 		case OP_DELETE:
-			object->m_filter &= ~filter; 			break;
+			object->m_filter = 0;
+      break;
 		case OP_MODIFY:
 			object->m_filter = filter;
 			break;
 	}
-	if (epoll_ctl(m_epoll, operationTable[op - 1], fd, reinterpret_cast<epoll_event*>(&newEvent)) < 0)
-		throw std::runtime_error("epoll_ctl fail");
+	if (epoll_ctl(m_epoll, operationTable[op - 1], fd, &newEvent) < 0)
+		throw std::runtime_error("epoll_ctl() fail");
 }
 
 int
@@ -68,7 +69,7 @@ Epoll::pollWork()
 	int			count = 0;
 
 	m_eventList.resize(maxEvent);
-	count = epoll_wait(m_epoll, m_eventList.data(), m_eventList.size(), 100);
+	count = epoll_wait(m_epoll, m_eventList.data(), m_eventList.size(), 1000);
 	if (count < 0)
 		throw std::runtime_error("epoll() error");
 	m_eventList.resize(count);
@@ -86,24 +87,31 @@ Epoll::pollWork()
 		EventObject*	object = reinterpret_cast<EventObject*>(event.data.ptr);
 		int				status = STAT_NORMAL;
 
+    LOG(Logger::DEBUG, "[%d] op=%d", object->m_fd, event.events);
 		if (TEST_BITMASK(event.events, EPOLLERR))
 			object->m_eventStatus = EventObject::EVENT_EOF;
 
 		if (TEST_BITMASK(event.events, EPOLLIN))
 		{
+      event.events &= ~EPOLLIN;
 			object->m_filter = FILT_READ;
 			status |= object->handleReadEvent();
 		}
 		if (TEST_BITMASK(event.events, EPOLLOUT))
 		{
+      event.events &= ~EPOLLOUT;
 			object->m_filter = FILT_WRITE;
 			status |= object->handleWriteEvent();
 		}
 		if (TEST_BITMASK(event.events, EPOLLERR))
 		{
+      event.events &= ~EPOLLERR;
 			object->m_filter = FILT_ERROR;
 			status |= object->handleErrorEvent();
 		}
+    if (event.events != 0) {
+      LOG(WARNING, "[%d] EPOLL event(s) = %d is not handled.", object->m_fd, event.events);
+    }
 		if (TEST_BITMASK(status, STAT_END) == true)
 		{
 			delete object;

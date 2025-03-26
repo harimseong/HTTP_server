@@ -98,7 +98,6 @@ PostResponder::constructCgi()
 	int cgiToServer[2];
 	int serverToCgi[2];
 
-
 	if (pipe(cgiToServer) < 0
 		|| pipe(serverToCgi) < 0)
 		throw runtime_error("pipe fail in PostRedponder::contructCgi()");

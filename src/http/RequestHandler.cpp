@@ -64,7 +64,7 @@ RequestHandler::receiveRequest()
 		return RECV_SKIPPED;
 	else if (count == 0)
 		return RECV_END;
-	LOG(DEBUG, "[%d] receiveRequest() count = %d", m_socket->m_fd, count);
+	//LOG(DEBUG, "[%d] receiveRequest() count = %d", m_socket->m_fd, count);
 	switch (m_parser.m_readStatus)
 	{
 		case HttpRequestParser::REQUEST_LINE_METHOD: // fall through
@@ -168,14 +168,14 @@ RequestHandler::checkIsCgi()
 	m_request.m_isCgi = false;
 	if (m_request.m_file != "" && (m_request.m_method == GET || m_request.m_method == POST))
 	{
-		string m_ext = "";
+		string ext = "";
 		if (m_request.m_file.rfind(".") != string::npos)
 		{
-			m_ext = m_request.m_file.substr(m_request.m_file.rfind("."));
-			if (m_request.m_virtualServer->m_cgiPass.count(m_ext) == true)
+			ext = m_request.m_file.substr(m_request.m_file.rfind("."));
+			if (m_request.m_virtualServer->m_cgiPass.count(ext) == true)
 			{
-				m_request.m_cgi = m_request.m_virtualServer->m_cgiPass[m_ext];
-				m_request.m_isCgi = m_request.m_method == RequestHandler::GET && m_ext == ".bla" ? false : true;
+				m_request.m_cgi = m_request.m_virtualServer->m_cgiPass[ext];
+				m_request.m_isCgi = m_request.m_method == RequestHandler::GET && ext == ".bla" ? false : true;
 			}
 		}
 		if (m_request.m_isCgi == true && (m_request.m_method == POST || m_request.m_method == PUT))
@@ -308,10 +308,7 @@ RequestHandler::sendResponse() try
 		m_sendBuffer.status(Buffer::BUF_EOF);
 		return m_parser.m_readStatus == HttpRequestParser::ERROR ? SEND_ERROR : SEND_END;
 	}
-	else if (count > 0)
-	{
-		LOG(DEBUG, "[%d] sendResponse() count = %d", m_socket->m_fd, count);
-	}
+	LOG(DEBUG, "[%d] sendResponse() count = %d, readStatus = %d", m_socket->m_fd, count, m_parser.m_readStatus);
 	return SEND_NORMAL;
 }
 catch (runtime_error& e)

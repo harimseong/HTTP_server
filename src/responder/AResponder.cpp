@@ -190,6 +190,7 @@ AResponder::endResponse()
 	m_requestHandler.m_parser.m_readStatus = HttpRequestParser::FINISHED;
 	if (m_request.m_status >= 300)
 		m_requestHandler.m_parser.m_readStatus = HttpRequestParser::ERROR;
+  LOG(DEBUG, "[%d] readStatus = %d, request status = %d", m_requestHandler.m_socket->m_fd, m_requestHandler.m_parser.m_readStatus, m_request.m_status);
 }
 
 void

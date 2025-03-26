@@ -130,10 +130,7 @@ Cgi::sendCgiRequest()
 {
 	int	count = m_toCgiBuffer->send(m_serverToCgi[1]);
 
-	if (count != 0)
-	{
-		LOG(DEBUG, "[%d] sendCgiRequest() count = %d", m_fd, count);
-	}
+	LOG(DEBUG, "[%d] sendCgiRequest() count = %d", m_fd, count);
 	if (m_toCgiBuffer->size() == 0 && m_toCgiBuffer->status() == Buffer::BUF_EOF)
 	{
 		LOG(DEBUG, "[%d] sendCgiRequest() end", m_fd);
