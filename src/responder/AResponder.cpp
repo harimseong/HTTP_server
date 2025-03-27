@@ -1,13 +1,10 @@
 #include <sys/stat.h>
 #include <fcntl.h>
-#include <stdexcept>
-#include <algorithm>
-#include <sstream>
 #include <fstream>
 
 #include "Logger.hpp"
+#include "ServerManager.hpp"
 #include "exception/HttpErrorHandler.hpp"
-#include "VirtualServer.hpp"
 #include "http/RequestHandler.hpp"
 #include "io/Buffer.hpp"
 #include "util/Util.hpp"
@@ -190,7 +187,6 @@ AResponder::endResponse()
 	m_requestHandler.m_parser.m_readStatus = HttpRequestParser::FINISHED;
 	if (m_request.m_status >= 300)
 		m_requestHandler.m_parser.m_readStatus = HttpRequestParser::ERROR;
-  LOG(DEBUG, "[%d] readStatus = %d, request status = %d", m_requestHandler.m_socket->m_fd, m_requestHandler.m_parser.m_readStatus, m_request.m_status);
 }
 
 void

@@ -3,10 +3,8 @@
 #include "Logger.hpp"
 #include "VirtualServer.hpp"
 #include "ServerManager.hpp"
-#include "io/IoMultiplex.hpp"
 #include "event/Cgi.hpp"
 #include "http/AutoIndex.hpp"
-#include "util/Util.hpp"
 #include "responder/GetResponder.hpp"
 
 using namespace std;

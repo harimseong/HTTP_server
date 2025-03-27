@@ -12,6 +12,10 @@
 /*sin_port*/	htons(port),\
 /*sin_addr*/	(in_addr){(in_addr_t)htonl(addr)},\
 /*sin_zero*/	{0, }\
+
+#  define IO_FILTER_READ (EVFILT_READ)
+#  define IO_FILTER_WRITE (EVFILT_WRITE)
+#  define IO_FILTER_ERROR (0)
 })
 # endif
 # ifdef __linux__
@@ -25,6 +29,10 @@
 /*sin_addr*/	(in_addr){htonl(addr)},\
 /*sin_zero*/	{0, }\
 })
+
+#  define IO_FILTER_READ (EPOLLIN)
+#  define IO_FILTER_WRITE (EPOLLOUT)
+#  define IO_FILTER_ERROR (EPOLLERR)
 # endif
 
 #endif

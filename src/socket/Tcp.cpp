@@ -1,6 +1,5 @@
 #include <sstream>
 
-#include "socket/Socket.hpp"
 #include "socket/Tcp.hpp"
 
 using namespace	std;

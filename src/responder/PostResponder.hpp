@@ -12,7 +12,7 @@ public:
 	PostResponder	&operator=(const PostResponder& postResponder);
 
 	virtual void	respondWork();
-		void			constructCgi();
+	void			constructCgi();
 
 private:
 };

@@ -4,6 +4,12 @@
 #include <sys/socket.h>
 #include <unistd.h>
 
+# ifdef __linux__
+#  define SOCKET_CLOEXEC (SOCK_CLOEXEC)
+# elif
+#  define SOCKET_CLOEXEC
+# endif
+
 template <typename SocketType>
 class	Socket
 {

@@ -35,25 +35,27 @@ public:
 	void			endResponse();
 
 protected:
+	bool			checkFileExists(const std::string& filePath);
+	bool			checkDirExists(const std::string& filePath);
+
+	void			openFile(const std::string& path);
+	void			openFile();
+
+	std::string		parseChunkSize();
+
+	void			readFile(std::string& readBody);
+
+	int				receiveContentNormal();
+	int				receiveContentChunked();
+
 	void			respondStatusLine(int statusCode);
 	void			respondBody(const std::string& readBody);
 
 	int				sendContentNormal();
 	int				sendContentChunked();
 
-	std::string		parseChunkSize();
-
-	void			openFile(const std::string& path);
-	void			openFile();
 	int				writeToFile(size_t writeSize);
 	int				writeToBuffer(size_t writeSize);
-	void			readFile(std::string& readBody);
-
-	int				receiveContentNormal();
-	int				receiveContentChunked();
-
-	bool			checkFileExists(const std::string& filePath);
-	bool			checkDirExists(const std::string& filePath);
 
 	std::string		getErrorPage(std::string& readBody);
 

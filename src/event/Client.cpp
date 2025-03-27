@@ -45,6 +45,7 @@ Client::handleReadEventWork()
 			break;
 
 		case RequestHandler::RECV_END:
+			LOG(DEBUG, "[%d] receive event end", m_socket.m_fd);
 			m_eventStatus = EVENT_EOF;
 			if (TEST_BITMASK(m_filter, IoEventPoller::FILT_WRITE) == true)
 				return IoEventPoller::STAT_NORMAL;
@@ -65,7 +66,7 @@ Client::handleWriteEventWork()
 	switch (status)
 	{
 		case RequestHandler::SEND_END:
-			LOG(DEBUG, "[%d] write event finished", m_socket.m_fd);
+			LOG(DEBUG, "[%d] write event finished. status = %d", m_socket.m_fd, m_eventStatus);
 			if (m_eventStatus == EVENT_EOF)
 				return IoEventPoller::STAT_END;
 			ServerManager::registerEvent(m_socket.m_fd, IoEventPoller::OP_DELETE,
@@ -73,7 +74,7 @@ Client::handleWriteEventWork()
 			break;
 
 		case RequestHandler::SEND_ERROR:
-			LOG(DEBUG, "[%d] error while write event", m_socket.m_fd);
+			LOG(DEBUG, "[%d] write event error", m_socket.m_fd);
 			return IoEventPoller::STAT_END;
 
 		default:

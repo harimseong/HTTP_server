@@ -1,0 +1,494 @@
+--------------------------------------------------------------------------------
+Command:            ./webserv config/webserv_tester_ubuntu.conf
+Massif arguments:   (none)
+ms_print arguments: --x=120 --y=30 massif.out.14604
+--------------------------------------------------------------------------------
+
+
+    GB
+2.566^                                                                                                     :                  
+     |                                                                #:::::      ::::::       ::::::      ::::::       ::::: 
+     |                                                                #:          : :          ::          :::         :::    
+     |                                                                #:    ::    : :   ::     ::    @     :::   @     :::   @
+     |                                                                #:    :     : :   :      ::    @     :::   @     :::   @
+     |                                                                #:    :     : :   :      ::    @     :::   @     :::   @
+     |                                                                #:    :     : :   :      ::    @     :::   @     :::   @
+     |                                                                #:    :     : :   :      ::    @     :::   @     :::   @
+     |                                                                #:    :     : :   :      ::    @     :::   @     :::   @
+     |                                                                #:    :     : :   :      ::    @     :::   @     :::   @
+     |                                                                #:    :     : :   :      ::    @     :::   @     :::   @
+     |                                                                #:    :     : :   :      ::    @     :::   @     :::   @
+     |                                                                #:    :     : :   :      ::    @     :::   @     :::   @
+     |                                                                #:    :     : :   :      ::    @     :::   @     :::   @
+     |                                                                #:    :     : :   :      ::    @     :::   @     :::   @
+     |                                                                #:    :     : :   :      ::    @     :::   @     :::   @
+     |                                                             :::#:    :   @:: :   :   :::::    @  ::::::   @   :::::   @
+     |                                                             :  #:    :   @:: :   :   :::::    @  ::::::   @   :::::   @
+     |                                                             :  #:    :   @:: :   :   :::::    @  ::::::   @   :::::   @
+     |                                                             :  #:    :   @:: :   :   :::::    @  ::::::   @   :::::   @
+     |                                                             :  #:    :   @:: :   :   :::::    @  ::::::   @   :::::   @
+     |                                                             :  #:    :   @:: :   :   :::::    @  ::::::   @   :::::   @
+     |                                                             :  #:    :   @:: :   :   :::::    @  ::::::   @   :::::   @
+     |                                                            ::  #:    : ::@:: :   : :::::::    @ :::::::   @ :::::::   @
+     |                                                            ::  #:    : : @:: :   : : :::::    @ :::::::   @ :::::::   @
+     |                                                            ::  #:    : : @:: :   : : :::::    @ :::::::   @ :::::::   @
+     |                                                            ::  #:    : : @:: :   : : :::::    @ :::::::   @ :::::::   @
+     |                                                            ::  #:    : : @:: :   : : :::::    @::::::::   @::::::::   @
+     |                                                          @@::  #:    : : @:: :   : : :::::    @::::::::   @::::::::   @
+     |          ::::::::              @@::::                    @ ::  #:    : : @:: :   : : :::::    @::::::::   @::::::::   @
+   0 +----------------------------------------------------------------------------------------------------------------------->Gi
+     0                                                                                                                   116.8
+
+Number of snapshots: 75
+ Detailed snapshots: [1, 3, 19, 26, 34, 35, 38 (peak), 42, 54, 64, 74]
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  0              0                0                0             0            0
+  1  1,547,310,682       33,777,352       33,771,441         5,911            0
+99.98% (33,771,441B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->99.34% (33,555,239B) 0x49A9F3D: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| ->99.34% (33,554,433B) 0x49AB8BF: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| | ->99.34% (33,554,433B) 0x1408DF: AResponder::writeToBuffer(unsigned long) (in /home/hseong/projects/HTTP_server/webserv)
+| | | ->99.34% (33,554,433B) 0x141780: AResponder::receiveContentChunked() (in /home/hseong/projects/HTTP_server/webserv)
+| | |   ->99.34% (33,554,433B) 0x142F7D: PostResponder::respondWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |     ->99.34% (33,554,433B) 0x1400F0: AResponder::respond() (in /home/hseong/projects/HTTP_server/webserv)
+| | |       ->99.34% (33,554,433B) 0x13A645: RequestHandler::receiveRequest() (in /home/hseong/projects/HTTP_server/webserv)
+| | |         ->99.34% (33,554,433B) 0x118601: Client::handleReadEventWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |           ->99.34% (33,554,433B) 0x1182CA: EventObject::handleReadEvent() (in /home/hseong/projects/HTTP_server/webserv)
+| | |             ->99.34% (33,554,433B) 0x10FC67: Epoll::pollWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |               ->99.34% (33,554,433B) 0x112A38: IoMultiplex<epoll_event>::poll() (in /home/hseong/projects/HTTP_server/webserv)
+| | |                 ->99.34% (33,554,433B) 0x1122B0: ServerManager::run() (in /home/hseong/projects/HTTP_server/webserv)
+| | |                   ->99.34% (33,554,433B) 0x111405: main (in /home/hseong/projects/HTTP_server/webserv)
+| | |                     
+| | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (806B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.64% (216,202B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  2  2,845,236,196       33,777,352       33,771,441         5,911            0
+  3  4,677,230,368       67,331,784       67,325,873         5,911            0
+99.99% (67,325,873B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->99.67% (67,109,671B) 0x49A9F3D: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| ->99.67% (67,108,865B) 0x49AB8BF: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| | ->99.67% (67,108,865B) 0x1408DF: AResponder::writeToBuffer(unsigned long) (in /home/hseong/projects/HTTP_server/webserv)
+| | | ->99.67% (67,108,865B) 0x141780: AResponder::receiveContentChunked() (in /home/hseong/projects/HTTP_server/webserv)
+| | |   ->99.67% (67,108,865B) 0x142F7D: PostResponder::respondWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |     ->99.67% (67,108,865B) 0x1400F0: AResponder::respond() (in /home/hseong/projects/HTTP_server/webserv)
+| | |       ->99.67% (67,108,865B) 0x13A645: RequestHandler::receiveRequest() (in /home/hseong/projects/HTTP_server/webserv)
+| | |         ->99.67% (67,108,865B) 0x118601: Client::handleReadEventWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |           ->99.67% (67,108,865B) 0x1182CA: EventObject::handleReadEvent() (in /home/hseong/projects/HTTP_server/webserv)
+| | |             ->99.67% (67,108,865B) 0x10FC67: Epoll::pollWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |               ->99.67% (67,108,865B) 0x112A38: IoMultiplex<epoll_event>::poll() (in /home/hseong/projects/HTTP_server/webserv)
+| | |                 ->99.67% (67,108,865B) 0x1122B0: ServerManager::run() (in /home/hseong/projects/HTTP_server/webserv)
+| | |                   ->99.67% (67,108,865B) 0x111405: main (in /home/hseong/projects/HTTP_server/webserv)
+| | |                     
+| | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (806B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.32% (216,202B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  4  5,849,717,730       67,331,784       67,325,873         5,911            0
+  5  7,360,833,431       67,331,784       67,325,873         5,911            0
+  6  9,607,488,665       67,331,784       67,325,873         5,911            0
+  7 10,978,295,207      134,440,648      134,434,737         5,911            0
+  8 12,990,768,017      134,440,648      134,434,737         5,911            0
+  9 14,555,968,548      134,440,648      134,434,737         5,911            0
+ 10 17,029,731,396      134,440,648      134,434,737         5,911            0
+ 11 18,955,045,226        8,677,088        8,671,161         5,927            0
+ 12 20,869,382,374       17,065,696       17,059,769         5,927            0
+ 13 22,593,063,942       33,842,912       33,836,985         5,927            0
+ 14 24,890,382,738       33,842,912       33,836,985         5,927            0
+ 15 26,231,019,306       67,397,344       67,391,417         5,927            0
+ 16 27,571,537,480       67,397,344       67,391,417         5,927            0
+ 17 30,252,256,091       67,397,344       67,391,417         5,927            0
+ 18 31,927,685,224       67,397,344       67,391,417         5,927            0
+ 19 33,938,231,792      134,506,208      134,500,281         5,927            0
+100.00% (134,500,281B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->99.88% (134,349,608B) 0x49A9F3D: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| ->99.88% (134,348,802B) 0x49AB8BF: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| | ->99.79% (134,217,729B) 0x1408DF: AResponder::writeToBuffer(unsigned long) (in /home/hseong/projects/HTTP_server/webserv)
+| | | ->99.79% (134,217,729B) 0x141780: AResponder::receiveContentChunked() (in /home/hseong/projects/HTTP_server/webserv)
+| | |   ->99.79% (134,217,729B) 0x142F7D: PostResponder::respondWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |     ->99.79% (134,217,729B) 0x1400F0: AResponder::respond() (in /home/hseong/projects/HTTP_server/webserv)
+| | |       ->99.79% (134,217,729B) 0x13A645: RequestHandler::receiveRequest() (in /home/hseong/projects/HTTP_server/webserv)
+| | |         ->99.79% (134,217,729B) 0x118601: Client::handleReadEventWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |           ->99.79% (134,217,729B) 0x1182CA: EventObject::handleReadEvent() (in /home/hseong/projects/HTTP_server/webserv)
+| | |             ->99.79% (134,217,729B) 0x10FC67: Epoll::pollWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |               ->99.79% (134,217,729B) 0x112A38: IoMultiplex<epoll_event>::poll() (in /home/hseong/projects/HTTP_server/webserv)
+| | |                 ->99.79% (134,217,729B) 0x1122B0: ServerManager::run() (in /home/hseong/projects/HTTP_server/webserv)
+| | |                   ->99.79% (134,217,729B) 0x111405: main (in /home/hseong/projects/HTTP_server/webserv)
+| | |                     
+| | ->00.10% (131,073B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (806B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.11% (150,673B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 20 35,613,344,879      134,506,208      134,500,281         5,927            0
+ 21 37,623,508,464      134,506,208      134,500,281         5,927            0
+ 22 38,963,797,196      134,506,208      134,500,281         5,927            0
+ 23 40,524,426,474        2,722,872        2,719,518         3,354            0
+ 24 41,864,125,431        2,789,120        2,785,611         3,509            0
+ 25 43,277,283,194        2,723,296        2,719,857         3,439            0
+ 26 45,161,588,729        2,722,872        2,719,518         3,354            0
+99.88% (2,719,518B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->96.28% (2,621,480B) 0x49A9B8B: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct(unsigned long, char) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| ->96.28% (2,621,480B) 0x14446E: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct_aux<int>(int, int, std::__true_type) (in /home/hseong/projects/HTTP_server/webserv)
+|   ->96.28% (2,621,480B) 0x144439: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<int>(int, int) (in /home/hseong/projects/HTTP_server/webserv)
+|     ->96.28% (2,621,480B) 0x1443E9: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<int>(int, int, std::allocator<char> const&) (in /home/hseong/projects/HTTP_server/webserv)
+|       ->96.28% (2,621,480B) 0x143C88: Buffer::Buffer() (in /home/hseong/projects/HTTP_server/webserv)
+|         ->48.14% (1,310,740B) 0x13A35B: RequestHandler::RequestHandler(Socket<Tcp> const&) (in /home/hseong/projects/HTTP_server/webserv)
+|         | ->48.14% (1,310,740B) 0x1183F2: Client::Client(int) (in /home/hseong/projects/HTTP_server/webserv)
+|         |   ->48.14% (1,310,740B) 0x119176: Server::handleReadEventWork() (in /home/hseong/projects/HTTP_server/webserv)
+|         |     ->48.14% (1,310,740B) 0x1182CA: EventObject::handleReadEvent() (in /home/hseong/projects/HTTP_server/webserv)
+|         |       ->48.14% (1,310,740B) 0x10FC67: Epoll::pollWork() (in /home/hseong/projects/HTTP_server/webserv)
+|         |         ->48.14% (1,310,740B) 0x112A38: IoMultiplex<epoll_event>::poll() (in /home/hseong/projects/HTTP_server/webserv)
+|         |           ->48.14% (1,310,740B) 0x1122B0: ServerManager::run() (in /home/hseong/projects/HTTP_server/webserv)
+|         |             ->48.14% (1,310,740B) 0x111405: main (in /home/hseong/projects/HTTP_server/webserv)
+|         |               
+|         ->48.14% (1,310,740B) 0x13A36D: RequestHandler::RequestHandler(Socket<Tcp> const&) (in /home/hseong/projects/HTTP_server/webserv)
+|         | ->48.14% (1,310,740B) 0x1183F2: Client::Client(int) (in /home/hseong/projects/HTTP_server/webserv)
+|         |   ->48.14% (1,310,740B) 0x119176: Server::handleReadEventWork() (in /home/hseong/projects/HTTP_server/webserv)
+|         |     ->48.14% (1,310,740B) 0x1182CA: EventObject::handleReadEvent() (in /home/hseong/projects/HTTP_server/webserv)
+|         |       ->48.14% (1,310,740B) 0x10FC67: Epoll::pollWork() (in /home/hseong/projects/HTTP_server/webserv)
+|         |         ->48.14% (1,310,740B) 0x112A38: IoMultiplex<epoll_event>::poll() (in /home/hseong/projects/HTTP_server/webserv)
+|         |           ->48.14% (1,310,740B) 0x1122B0: ServerManager::run() (in /home/hseong/projects/HTTP_server/webserv)
+|         |             ->48.14% (1,310,740B) 0x111405: main (in /home/hseong/projects/HTTP_server/webserv)
+|         |               
+|         ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+|         
+->02.67% (72,704B) 0x4908979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| ->02.67% (72,704B) 0x400647D: call_init.part.0 (dl-init.c:70)
+|   ->02.67% (72,704B) 0x4006567: call_init (dl-init.c:33)
+|     ->02.67% (72,704B) 0x4006567: _dl_init (dl-init.c:117)
+|       ->02.67% (72,704B) 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+|         ->02.67% (72,704B) 0x1: ???
+|           ->02.67% (72,704B) 0x1FFF000352: ???
+|             ->02.67% (72,704B) 0x1FFF00035C: ???
+|               
+->00.93% (25,334B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 27 46,574,771,636        2,789,120        2,785,599         3,521            0
+ 28 48,459,036,685        2,789,120        2,785,599         3,521            0
+ 29 49,401,198,854        2,789,120        2,785,599         3,521            0
+ 30 51,756,580,635        2,722,872        2,719,518         3,354            0
+ 31 53,640,878,850        2,722,872        2,719,518         3,354            0
+ 32 55,525,067,607        2,797,888        2,794,337         3,551            0
+ 33 57,409,410,402        2,789,120        2,785,599         3,521            0
+ 34 59,293,630,368        2,789,120        2,785,599         3,521            0
+99.87% (2,785,599B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->96.34% (2,687,017B) 0x49A9B8B: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct(unsigned long, char) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| ->96.34% (2,687,017B) 0x14446E: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct_aux<int>(int, int, std::__true_type) (in /home/hseong/projects/HTTP_server/webserv)
+|   ->96.34% (2,687,017B) 0x144439: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<int>(int, int) (in /home/hseong/projects/HTTP_server/webserv)
+|     ->96.34% (2,687,017B) 0x1443E9: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<int>(int, int, std::allocator<char> const&) (in /home/hseong/projects/HTTP_server/webserv)
+|       ->96.34% (2,687,017B) 0x143C88: Buffer::Buffer() (in /home/hseong/projects/HTTP_server/webserv)
+|         ->46.99% (1,310,740B) 0x13A35B: RequestHandler::RequestHandler(Socket<Tcp> const&) (in /home/hseong/projects/HTTP_server/webserv)
+|         | ->46.99% (1,310,740B) 0x1183F2: Client::Client(int) (in /home/hseong/projects/HTTP_server/webserv)
+|         |   ->46.99% (1,310,740B) 0x119176: Server::handleReadEventWork() (in /home/hseong/projects/HTTP_server/webserv)
+|         |     ->46.99% (1,310,740B) 0x1182CA: EventObject::handleReadEvent() (in /home/hseong/projects/HTTP_server/webserv)
+|         |       ->46.99% (1,310,740B) 0x10FC67: Epoll::pollWork() (in /home/hseong/projects/HTTP_server/webserv)
+|         |         ->46.99% (1,310,740B) 0x112A38: IoMultiplex<epoll_event>::poll() (in /home/hseong/projects/HTTP_server/webserv)
+|         |           ->46.99% (1,310,740B) 0x1122B0: ServerManager::run() (in /home/hseong/projects/HTTP_server/webserv)
+|         |             ->46.99% (1,310,740B) 0x111405: main (in /home/hseong/projects/HTTP_server/webserv)
+|         |               
+|         ->46.99% (1,310,740B) 0x13A36D: RequestHandler::RequestHandler(Socket<Tcp> const&) (in /home/hseong/projects/HTTP_server/webserv)
+|         | ->46.99% (1,310,740B) 0x1183F2: Client::Client(int) (in /home/hseong/projects/HTTP_server/webserv)
+|         |   ->46.99% (1,310,740B) 0x119176: Server::handleReadEventWork() (in /home/hseong/projects/HTTP_server/webserv)
+|         |     ->46.99% (1,310,740B) 0x1182CA: EventObject::handleReadEvent() (in /home/hseong/projects/HTTP_server/webserv)
+|         |       ->46.99% (1,310,740B) 0x10FC67: Epoll::pollWork() (in /home/hseong/projects/HTTP_server/webserv)
+|         |         ->46.99% (1,310,740B) 0x112A38: IoMultiplex<epoll_event>::poll() (in /home/hseong/projects/HTTP_server/webserv)
+|         |           ->46.99% (1,310,740B) 0x1122B0: ServerManager::run() (in /home/hseong/projects/HTTP_server/webserv)
+|         |             ->46.99% (1,310,740B) 0x111405: main (in /home/hseong/projects/HTTP_server/webserv)
+|         |               
+|         ->02.35% (65,537B) 0x13FC85: AResponder::AResponder(RequestHandler&) (in /home/hseong/projects/HTTP_server/webserv)
+|         | ->02.35% (65,537B) 0x142456: GetResponder::GetResponder(RequestHandler&) (in /home/hseong/projects/HTTP_server/webserv)
+|         | | ->02.35% (65,537B) 0x13A736: RequestHandler::createResponseHeader() (in /home/hseong/projects/HTTP_server/webserv)
+|         | |   ->02.35% (65,537B) 0x13A61F: RequestHandler::receiveRequest() (in /home/hseong/projects/HTTP_server/webserv)
+|         | |     ->02.35% (65,537B) 0x118601: Client::handleReadEventWork() (in /home/hseong/projects/HTTP_server/webserv)
+|         | |       ->02.35% (65,537B) 0x1182CA: EventObject::handleReadEvent() (in /home/hseong/projects/HTTP_server/webserv)
+|         | |         ->02.35% (65,537B) 0x10FC67: Epoll::pollWork() (in /home/hseong/projects/HTTP_server/webserv)
+|         | |           ->02.35% (65,537B) 0x112A38: IoMultiplex<epoll_event>::poll() (in /home/hseong/projects/HTTP_server/webserv)
+|         | |             ->02.35% (65,537B) 0x1122B0: ServerManager::run() (in /home/hseong/projects/HTTP_server/webserv)
+|         | |               ->02.35% (65,537B) 0x111405: main (in /home/hseong/projects/HTTP_server/webserv)
+|         | |                 
+|         | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+|         | 
+|         ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+|         
+->02.61% (72,704B) 0x4908979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| ->02.61% (72,704B) 0x400647D: call_init.part.0 (dl-init.c:70)
+|   ->02.61% (72,704B) 0x4006567: call_init (dl-init.c:33)
+|     ->02.61% (72,704B) 0x4006567: _dl_init (dl-init.c:117)
+|       ->02.61% (72,704B) 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+|         ->02.61% (72,704B) 0x1: ???
+|           ->02.61% (72,704B) 0x1FFF000352: ???
+|             ->02.61% (72,704B) 0x1FFF00035C: ???
+|               
+->00.93% (25,878B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 35 61,540,732,229      271,263,248      271,171,455        91,793            0
+99.97% (271,171,455B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->98.96% (268,436,424B) 0x49A9F3D: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| ->98.96% (268,435,618B) 0x49AB8BF: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| | ->98.96% (268,435,477B) 0x1408DF: AResponder::writeToBuffer(unsigned long) (in /home/hseong/projects/HTTP_server/webserv)
+| | | ->64.94% (176,160,783B) 0x141780: AResponder::receiveContentChunked() (in /home/hseong/projects/HTTP_server/webserv)
+| | | | ->64.94% (176,160,783B) 0x142F7D: PostResponder::respondWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |   ->64.94% (176,160,783B) 0x1400F0: AResponder::respond() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |     ->64.94% (176,160,783B) 0x13A645: RequestHandler::receiveRequest() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |       ->64.94% (176,160,783B) 0x118601: Client::handleReadEventWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |         ->64.94% (176,160,783B) 0x1182CA: EventObject::handleReadEvent() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |           ->64.94% (176,160,783B) 0x10FC67: Epoll::pollWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |             ->64.94% (176,160,783B) 0x112A38: IoMultiplex<epoll_event>::poll() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |               ->64.94% (176,160,783B) 0x1122B0: ServerManager::run() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |                 ->64.94% (176,160,783B) 0x111405: main (in /home/hseong/projects/HTTP_server/webserv)
+| | | |                   
+| | | ->34.02% (92,274,694B) 0x141672: AResponder::receiveContentChunked() (in /home/hseong/projects/HTTP_server/webserv)
+| | |   ->34.02% (92,274,694B) 0x142F7D: PostResponder::respondWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |     ->34.02% (92,274,694B) 0x1400F0: AResponder::respond() (in /home/hseong/projects/HTTP_server/webserv)
+| | |       ->34.02% (92,274,694B) 0x13A645: RequestHandler::receiveRequest() (in /home/hseong/projects/HTTP_server/webserv)
+| | |         ->34.02% (92,274,694B) 0x118601: Client::handleReadEventWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |           ->34.02% (92,274,694B) 0x1182CA: EventObject::handleReadEvent() (in /home/hseong/projects/HTTP_server/webserv)
+| | |             ->34.02% (92,274,694B) 0x10FC67: Epoll::pollWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |               ->34.02% (92,274,694B) 0x112A38: IoMultiplex<epoll_event>::poll() (in /home/hseong/projects/HTTP_server/webserv)
+| | |                 ->34.02% (92,274,694B) 0x1122B0: ServerManager::run() (in /home/hseong/projects/HTTP_server/webserv)
+| | |                   ->34.02% (92,274,694B) 0x111405: main (in /home/hseong/projects/HTTP_server/webserv)
+| | |                     
+| | ->00.00% (141B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (806B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.01% (2,735,031B) in 38 places, all below massif's threshold (1.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 36 62,998,197,248      673,912,312      673,824,555        87,757            0
+ 37 64,600,306,344    1,345,000,880    1,344,913,137        87,743            0
+ 38 66,948,319,631    2,754,291,216    2,754,199,423        91,793            0
+100.00% (2,754,199,423B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->99.90% (2,751,464,392B) 0x49A9F3D: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| ->99.90% (2,751,463,586B) 0x49AB8BF: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| | ->99.90% (2,751,463,445B) 0x1408DF: AResponder::writeToBuffer(unsigned long) (in /home/hseong/projects/HTTP_server/webserv)
+| | | ->80.41% (2,214,592,529B) 0x141780: AResponder::receiveContentChunked() (in /home/hseong/projects/HTTP_server/webserv)
+| | | | ->80.41% (2,214,592,529B) 0x142F7D: PostResponder::respondWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |   ->80.41% (2,214,592,529B) 0x1400F0: AResponder::respond() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |     ->80.41% (2,214,592,529B) 0x13A645: RequestHandler::receiveRequest() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |       ->80.41% (2,214,592,529B) 0x118601: Client::handleReadEventWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |         ->80.41% (2,214,592,529B) 0x1182CA: EventObject::handleReadEvent() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |           ->80.41% (2,214,592,529B) 0x10FC67: Epoll::pollWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |             ->80.41% (2,214,592,529B) 0x112A38: IoMultiplex<epoll_event>::poll() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |               ->80.41% (2,214,592,529B) 0x1122B0: ServerManager::run() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |                 ->80.41% (2,214,592,529B) 0x111405: main (in /home/hseong/projects/HTTP_server/webserv)
+| | | |                   
+| | | ->19.49% (536,870,916B) 0x141672: AResponder::receiveContentChunked() (in /home/hseong/projects/HTTP_server/webserv)
+| | |   ->19.49% (536,870,916B) 0x142F7D: PostResponder::respondWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |     ->19.49% (536,870,916B) 0x1400F0: AResponder::respond() (in /home/hseong/projects/HTTP_server/webserv)
+| | |       ->19.49% (536,870,916B) 0x13A645: RequestHandler::receiveRequest() (in /home/hseong/projects/HTTP_server/webserv)
+| | |         ->19.49% (536,870,916B) 0x118601: Client::handleReadEventWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |           ->19.49% (536,870,916B) 0x1182CA: EventObject::handleReadEvent() (in /home/hseong/projects/HTTP_server/webserv)
+| | |             ->19.49% (536,870,916B) 0x10FC67: Epoll::pollWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |               ->19.49% (536,870,916B) 0x112A38: IoMultiplex<epoll_event>::poll() (in /home/hseong/projects/HTTP_server/webserv)
+| | |                 ->19.49% (536,870,916B) 0x1122B0: ServerManager::run() (in /home/hseong/projects/HTTP_server/webserv)
+| | |                   ->19.49% (536,870,916B) 0x111405: main (in /home/hseong/projects/HTTP_server/webserv)
+| | |                     
+| | ->00.00% (141B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (806B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.10% (2,735,031B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 39 68,959,628,115    2,687,178,160    2,687,090,417        87,743            0
+ 40 73,683,352,613    2,555,633,896    2,555,543,080        90,816            0
+ 41 75,694,686,017      675,223,616      675,135,409        88,207            0
+ 42 77,706,076,298    1,346,312,256    1,346,224,049        88,207            0
+99.99% (1,346,224,049B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->99.89% (1,344,799,566B) 0x49A9F3D: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| ->99.89% (1,344,798,760B) 0x49AB8BF: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| | ->99.69% (1,342,177,300B) 0x1408DF: AResponder::writeToBuffer(unsigned long) (in /home/hseong/projects/HTTP_server/webserv)
+| | | ->69.79% (939,524,110B) 0x141672: AResponder::receiveContentChunked() (in /home/hseong/projects/HTTP_server/webserv)
+| | | | ->69.79% (939,524,110B) 0x142F7D: PostResponder::respondWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |   ->69.79% (939,524,110B) 0x1400F0: AResponder::respond() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |     ->69.79% (939,524,110B) 0x13A645: RequestHandler::receiveRequest() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |       ->69.79% (939,524,110B) 0x118601: Client::handleReadEventWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |         ->69.79% (939,524,110B) 0x1182CA: EventObject::handleReadEvent() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |           ->69.79% (939,524,110B) 0x10FC67: Epoll::pollWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |             ->69.79% (939,524,110B) 0x112A38: IoMultiplex<epoll_event>::poll() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |               ->69.79% (939,524,110B) 0x1122B0: ServerManager::run() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |                 ->69.79% (939,524,110B) 0x111405: main (in /home/hseong/projects/HTTP_server/webserv)
+| | | |                   
+| | | ->29.91% (402,653,190B) 0x141780: AResponder::receiveContentChunked() (in /home/hseong/projects/HTTP_server/webserv)
+| | |   ->29.91% (402,653,190B) 0x142F7D: PostResponder::respondWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |     ->29.91% (402,653,190B) 0x1400F0: AResponder::respond() (in /home/hseong/projects/HTTP_server/webserv)
+| | |       ->29.91% (402,653,190B) 0x13A645: RequestHandler::receiveRequest() (in /home/hseong/projects/HTTP_server/webserv)
+| | |         ->29.91% (402,653,190B) 0x118601: Client::handleReadEventWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |           ->29.91% (402,653,190B) 0x1182CA: EventObject::handleReadEvent() (in /home/hseong/projects/HTTP_server/webserv)
+| | |             ->29.91% (402,653,190B) 0x10FC67: Epoll::pollWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |               ->29.91% (402,653,190B) 0x112A38: IoMultiplex<epoll_event>::poll() (in /home/hseong/projects/HTTP_server/webserv)
+| | |                 ->29.91% (402,653,190B) 0x1122B0: ServerManager::run() (in /home/hseong/projects/HTTP_server/webserv)
+| | |                   ->29.91% (402,653,190B) 0x111405: main (in /home/hseong/projects/HTTP_server/webserv)
+| | |                     
+| | ->00.19% (2,621,460B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (806B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.11% (1,424,483B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 43 79,046,873,333    1,346,312,328    1,346,224,107        88,221            0
+ 44 80,387,913,458    2,688,489,536    2,688,401,329        88,207            0
+ 45 82,399,121,068    2,689,172,904    2,689,081,202        91,702            0
+ 46 86,640,465,769    2,555,634,616    2,555,543,336        91,280            0
+ 47 88,651,874,389      675,224,064      675,135,665        88,399            0
+ 48 89,992,783,041    1,346,312,704    1,346,224,305        88,399            0
+ 49 91,333,622,200    1,346,312,776    1,346,224,363        88,413            0
+ 50 92,275,967,834    1,346,312,704    1,346,224,305        88,399            0
+ 51 93,218,142,073    2,688,489,984    2,688,401,585        88,399            0
+ 52 94,160,362,063    2,688,489,984    2,688,401,585        88,399            0
+ 53 95,102,674,072    2,688,489,984    2,688,401,585        88,399            0
+ 54 99,602,571,629    2,555,635,272    2,555,543,848        91,424            0
+100.00% (2,555,543,848B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->99.89% (2,552,759,937B) 0x49A9F3D: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| ->99.89% (2,552,759,131B) 0x49AB8BF: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| | ->99.78% (2,550,136,851B) 0x1408DF: AResponder::writeToBuffer(unsigned long) (in /home/hseong/projects/HTTP_server/webserv)
+| | | ->78.78% (2,013,265,935B) 0x141780: AResponder::receiveContentChunked() (in /home/hseong/projects/HTTP_server/webserv)
+| | | | ->78.78% (2,013,265,935B) 0x142F7D: PostResponder::respondWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |   ->78.78% (2,013,265,935B) 0x1400F0: AResponder::respond() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |     ->78.78% (2,013,265,935B) 0x13A645: RequestHandler::receiveRequest() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |       ->78.78% (2,013,265,935B) 0x118601: Client::handleReadEventWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |         ->78.78% (2,013,265,935B) 0x1182CA: EventObject::handleReadEvent() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |           ->78.78% (2,013,265,935B) 0x10FC67: Epoll::pollWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |             ->78.78% (2,013,265,935B) 0x112A38: IoMultiplex<epoll_event>::poll() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |               ->78.78% (2,013,265,935B) 0x1122B0: ServerManager::run() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |                 ->78.78% (2,013,265,935B) 0x111405: main (in /home/hseong/projects/HTTP_server/webserv)
+| | | |                   
+| | | ->21.01% (536,870,916B) 0x141672: AResponder::receiveContentChunked() (in /home/hseong/projects/HTTP_server/webserv)
+| | |   ->21.01% (536,870,916B) 0x142F7D: PostResponder::respondWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |     ->21.01% (536,870,916B) 0x1400F0: AResponder::respond() (in /home/hseong/projects/HTTP_server/webserv)
+| | |       ->21.01% (536,870,916B) 0x13A645: RequestHandler::receiveRequest() (in /home/hseong/projects/HTTP_server/webserv)
+| | |         ->21.01% (536,870,916B) 0x118601: Client::handleReadEventWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |           ->21.01% (536,870,916B) 0x1182CA: EventObject::handleReadEvent() (in /home/hseong/projects/HTTP_server/webserv)
+| | |             ->21.01% (536,870,916B) 0x10FC67: Epoll::pollWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |               ->21.01% (536,870,916B) 0x112A38: IoMultiplex<epoll_event>::poll() (in /home/hseong/projects/HTTP_server/webserv)
+| | |                 ->21.01% (536,870,916B) 0x1122B0: ServerManager::run() (in /home/hseong/projects/HTTP_server/webserv)
+| | |                   ->21.01% (536,870,916B) 0x111405: main (in /home/hseong/projects/HTTP_server/webserv)
+| | |                     
+| | ->00.10% (2,622,280B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (806B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.11% (2,783,911B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 55 100,544,836,866      310,320,192      310,231,729        88,463            0
+ 56 101,487,237,380      658,447,424      658,358,961        88,463            0
+ 57 102,429,574,210      675,224,640      675,136,177        88,463            0
+ 58 103,371,908,872    1,346,313,280    1,346,224,817        88,463            0
+ 59 104,314,146,944    1,346,313,280    1,346,224,817        88,463            0
+ 60 105,256,504,626    1,346,313,280    1,346,224,817        88,463            0
+ 61 106,198,714,310    2,755,603,616    2,755,511,103        92,513            0
+ 62 107,141,043,137    2,688,490,560    2,688,402,097        88,463            0
+ 63 108,083,222,793    2,688,490,560    2,688,402,097        88,463            0
+ 64 112,479,332,445    2,555,635,528    2,555,543,848        91,680            0
+100.00% (2,555,543,848B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->99.89% (2,552,759,937B) 0x49A9F3D: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| ->99.89% (2,552,759,131B) 0x49AB8BF: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| | ->99.78% (2,550,136,851B) 0x1408DF: AResponder::writeToBuffer(unsigned long) (in /home/hseong/projects/HTTP_server/webserv)
+| | | ->78.78% (2,013,265,935B) 0x141780: AResponder::receiveContentChunked() (in /home/hseong/projects/HTTP_server/webserv)
+| | | | ->78.78% (2,013,265,935B) 0x142F7D: PostResponder::respondWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |   ->78.78% (2,013,265,935B) 0x1400F0: AResponder::respond() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |     ->78.78% (2,013,265,935B) 0x13A645: RequestHandler::receiveRequest() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |       ->78.78% (2,013,265,935B) 0x118601: Client::handleReadEventWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |         ->78.78% (2,013,265,935B) 0x1182CA: EventObject::handleReadEvent() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |           ->78.78% (2,013,265,935B) 0x10FC67: Epoll::pollWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |             ->78.78% (2,013,265,935B) 0x112A38: IoMultiplex<epoll_event>::poll() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |               ->78.78% (2,013,265,935B) 0x1122B0: ServerManager::run() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |                 ->78.78% (2,013,265,935B) 0x111405: main (in /home/hseong/projects/HTTP_server/webserv)
+| | | |                   
+| | | ->21.01% (536,870,916B) 0x141672: AResponder::receiveContentChunked() (in /home/hseong/projects/HTTP_server/webserv)
+| | |   ->21.01% (536,870,916B) 0x142F7D: PostResponder::respondWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |     ->21.01% (536,870,916B) 0x1400F0: AResponder::respond() (in /home/hseong/projects/HTTP_server/webserv)
+| | |       ->21.01% (536,870,916B) 0x13A645: RequestHandler::receiveRequest() (in /home/hseong/projects/HTTP_server/webserv)
+| | |         ->21.01% (536,870,916B) 0x118601: Client::handleReadEventWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |           ->21.01% (536,870,916B) 0x1182CA: EventObject::handleReadEvent() (in /home/hseong/projects/HTTP_server/webserv)
+| | |             ->21.01% (536,870,916B) 0x10FC67: Epoll::pollWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |               ->21.01% (536,870,916B) 0x112A38: IoMultiplex<epoll_event>::poll() (in /home/hseong/projects/HTTP_server/webserv)
+| | |                 ->21.01% (536,870,916B) 0x1122B0: ServerManager::run() (in /home/hseong/projects/HTTP_server/webserv)
+| | |                   ->21.01% (536,870,916B) 0x111405: main (in /home/hseong/projects/HTTP_server/webserv)
+| | |                     
+| | ->00.10% (2,622,280B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (806B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.11% (2,783,911B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 65 113,421,523,152      318,708,720      318,620,337        88,383            0
+ 66 114,363,813,008      658,447,344      658,358,961        88,383            0
+ 67 115,305,992,570      675,224,648      675,136,235        88,413            0
+ 68 116,248,250,858    1,346,313,200    1,346,224,817        88,383            0
+ 69 117,190,604,983    1,346,313,200    1,346,224,817        88,383            0
+ 70 118,132,956,998    1,346,313,200    1,346,224,817        88,383            0
+ 71 119,075,222,630    2,621,381,616    2,621,293,233        88,383            0
+ 72 120,017,392,978    2,688,490,480    2,688,402,097        88,383            0
+ 73 120,959,681,961    2,688,490,480    2,688,402,097        88,383            0
+ 74 125,427,481,510    2,555,635,448    2,555,543,848        91,600            0
+100.00% (2,555,543,848B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->99.89% (2,552,759,937B) 0x49A9F3D: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| ->99.89% (2,552,759,131B) 0x49AB8BF: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+| | ->99.78% (2,550,136,851B) 0x1408DF: AResponder::writeToBuffer(unsigned long) (in /home/hseong/projects/HTTP_server/webserv)
+| | | ->68.27% (1,744,830,477B) 0x141780: AResponder::receiveContentChunked() (in /home/hseong/projects/HTTP_server/webserv)
+| | | | ->68.27% (1,744,830,477B) 0x142F7D: PostResponder::respondWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |   ->68.27% (1,744,830,477B) 0x1400F0: AResponder::respond() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |     ->68.27% (1,744,830,477B) 0x13A645: RequestHandler::receiveRequest() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |       ->68.27% (1,744,830,477B) 0x118601: Client::handleReadEventWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |         ->68.27% (1,744,830,477B) 0x1182CA: EventObject::handleReadEvent() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |           ->68.27% (1,744,830,477B) 0x10FC67: Epoll::pollWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |             ->68.27% (1,744,830,477B) 0x112A38: IoMultiplex<epoll_event>::poll() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |               ->68.27% (1,744,830,477B) 0x1122B0: ServerManager::run() (in /home/hseong/projects/HTTP_server/webserv)
+| | | |                 ->68.27% (1,744,830,477B) 0x111405: main (in /home/hseong/projects/HTTP_server/webserv)
+| | | |                   
+| | | ->31.51% (805,306,374B) 0x141672: AResponder::receiveContentChunked() (in /home/hseong/projects/HTTP_server/webserv)
+| | |   ->31.51% (805,306,374B) 0x142F7D: PostResponder::respondWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |     ->31.51% (805,306,374B) 0x1400F0: AResponder::respond() (in /home/hseong/projects/HTTP_server/webserv)
+| | |       ->31.51% (805,306,374B) 0x13A645: RequestHandler::receiveRequest() (in /home/hseong/projects/HTTP_server/webserv)
+| | |         ->31.51% (805,306,374B) 0x118601: Client::handleReadEventWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |           ->31.51% (805,306,374B) 0x1182CA: EventObject::handleReadEvent() (in /home/hseong/projects/HTTP_server/webserv)
+| | |             ->31.51% (805,306,374B) 0x10FC67: Epoll::pollWork() (in /home/hseong/projects/HTTP_server/webserv)
+| | |               ->31.51% (805,306,374B) 0x112A38: IoMultiplex<epoll_event>::poll() (in /home/hseong/projects/HTTP_server/webserv)
+| | |                 ->31.51% (805,306,374B) 0x1122B0: ServerManager::run() (in /home/hseong/projects/HTTP_server/webserv)
+| | |                   ->31.51% (805,306,374B) 0x111405: main (in /home/hseong/projects/HTTP_server/webserv)
+| | |                     
+| | ->00.10% (2,622,280B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (806B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.11% (2,783,911B) in 1+ places, all below ms_print's threshold (01.00%)
+

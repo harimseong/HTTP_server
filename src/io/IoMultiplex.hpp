@@ -28,7 +28,7 @@ public:
 
 	enum	e_filters
 	{
-		FILT_NONE = 0x0,
+		FILT_NONE = 0,
 		FILT_READ = 0x1,
 		FILT_WRITE = 0x2,
 		FILT_ERROR = 0x4

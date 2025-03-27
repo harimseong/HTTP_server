@@ -1,16 +1,12 @@
 #include <sys/socket.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include <vector>
 
 #include "Logger.hpp"
 #include "ServerManager.hpp"
 #include "VirtualServer.hpp"
-#include "io/IoMultiplex.hpp"
 #include "event/Cgi.hpp"
-#include "tokenizer/HttpStreamTokenizer.hpp"
 #include "util/Util.hpp"
-#include "exception/HttpErrorHandler.hpp"
 #include "PostResponder.hpp"
 
 using namespace std;

@@ -8,8 +8,8 @@
 #include <cstring>
 #include <string>
 
-#include "socket/Socket.hpp"
 #include "OsDependency.hpp"
+#include "socket/Socket.hpp"
 
 struct	Tcp
 {
@@ -32,7 +32,7 @@ struct	Tcp
 	{
 		int socketOption = 1;
 
-		return ::setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, &socketOption, sizeof(socketOption));
+		return ::setsockopt(fd, SOL_SOCKET, SOCKET_CLOEXEC | SO_REUSEADDR, &socketOption, sizeof(socketOption));
 	}
 
 	static int	removeSocket(int fd, const sockaddr_in& sockAddr)
