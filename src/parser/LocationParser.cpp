@@ -14,15 +14,15 @@ map<string, LocationParser::t_setter>	LocationParser::s_locationSetterMap;
 void
 LocationParser::setLocationSetterMap()
 {
+	s_locationSetterMap["alias"] = &LocationParser::setAlias;
+	s_locationSetterMap["autoindex"] = &LocationParser::setAutoIndex;
+	s_locationSetterMap["client_max_body_size"] = &LocationParser::setClientMaxBodySize;
+	s_locationSetterMap["error_page"] = &LocationParser::setErrorPage;
 	s_locationSetterMap["index"] = &LocationParser::setIndex;
 	s_locationSetterMap["limit_except"] = &LocationParser::setLimitExcept;
 	s_locationSetterMap["path"] = &LocationParser::setPath;
-	s_locationSetterMap["root"] = &LocationParser::setRoot;
-	s_locationSetterMap["alias"] = &LocationParser::setAlias;
-	s_locationSetterMap["client_max_body_size"] = &LocationParser::setClientMaxBodySize;
-	s_locationSetterMap["error_page"] = &LocationParser::setErrorPage;
-	s_locationSetterMap["autoindex"] = &LocationParser::setAutoIndex;
 	s_locationSetterMap["return"] = &LocationParser::setReturn;
+	s_locationSetterMap["root"] = &LocationParser::setRoot;
 
 }
 

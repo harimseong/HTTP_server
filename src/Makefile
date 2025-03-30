@@ -83,7 +83,7 @@ CPPFLAGS	+=	-DTEMP_DIR='"$(TEMP_DIR)/"'
 .PHONY: all debug release clean fclean re
 
 all: $(COMPILE_MODE)
-	$(MAKE) $(NAME) -j8
+	$(MAKE) $(NAME) -j4
 
 release: RELEASE.mode
 	$(MAKE) all

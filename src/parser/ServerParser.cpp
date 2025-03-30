@@ -18,16 +18,16 @@ map<string, ServerParser::t_setter>	ServerParser::s_serverSetterMap;
 
 void	ServerParser::setServerSetterMap()
 {
-	s_serverSetterMap["location"] = &ServerParser::parseLocation;
-	s_serverSetterMap["index"] = &ServerParser::setIndex;
-	s_serverSetterMap["server_name"] = &ServerParser::setServerNames;
-	s_serverSetterMap["error_page"] = &ServerParser::setErrorPage;
-	s_serverSetterMap["root"] = &ServerParser::setRoot;
-	s_serverSetterMap["listen"] = &ServerParser::setListenAddress;
-	s_serverSetterMap["client_max_body_size"] = &ServerParser::setClientMaxBodySize;
 	s_serverSetterMap["autoindex"] = &ServerParser::setAutoIndex;
 	s_serverSetterMap["cgi_pass"] = &ServerParser::setCgiPass;
+	s_serverSetterMap["client_max_body_size"] = &ServerParser::setClientMaxBodySize;
+	s_serverSetterMap["error_page"] = &ServerParser::setErrorPage;
+	s_serverSetterMap["index"] = &ServerParser::setIndex;
+	s_serverSetterMap["listen"] = &ServerParser::setListenAddress;
+	s_serverSetterMap["location"] = &ServerParser::parseLocation;
 	s_serverSetterMap["return"] = &ServerParser::setReturn;
+	s_serverSetterMap["root"] = &ServerParser::setRoot;
+	s_serverSetterMap["server_name"] = &ServerParser::setServerNames;
 }
 
 // constructors & destructor
