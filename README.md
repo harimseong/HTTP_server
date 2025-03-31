@@ -28,9 +28,9 @@ See [nginx documentation](https://nginx.org/en/docs/) to learn detail.
 ### Overview
 ```
 server {
-    server_name mydomain.com;
+	server_name mydomain.com;
 
-	root html;
+	root	html;
 
 	index	index.php;
 
@@ -53,7 +53,7 @@ server {
 
 A server block will initialize a virtual server according to the server definition.
 
-- `server_name`
+- `server_name name`
 
 Set the name of a virtual server. If multiple servers share same IP or port, they are identified by examining the server name.
 
@@ -61,9 +61,9 @@ Set the name of a virtual server. If multiple servers share same IP or port, the
 
 Set the root path for URL-to-path mapping.
 
-For example, `http://mydomain.com/hello/world` URL maps into `$WEBSERV_ROOT/html/hello/world` path. The domain part of the URL(`mydomain.com`) will be translated to `$WEBSERV_ROOT/html` and the path part(`/hello/world`) is appended there to generate complete file path.
+Given a URL `http://mydomain.com/hello/world`, the domain part of the URL(`mydomain.com`) will be translated to IP:PORT for IPC. File path is root path appended by the path part(`/hello/world`). If `WEBSERV_ROOT` is `/home/harim/webserver` and root path is `html`, The file path is `/home/harim/webserver/html/hello/world`. 
 
-If `path` starts with `/`, `$WEBSERV_ROOT` is not used(i.e. `path` is used as absolute path).
+If `path` starts with `/`, `WEBSERV_ROOT` is not used(i.e. `path` is used as absolute path). `WEBSERV_ROOT` is set when build is done.
 
 - `index file`
 
